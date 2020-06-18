@@ -19,7 +19,7 @@ Hylia version 0.7.0 features:
 ✅ Progressively enhanced, semantic and accessible  
 🎈 _Super_ lightweight front-end  
 🚰 Sass powered CSS system with utility class generator  
-⚙️ Service worker that caches pages so people can read your articles offline  
+⚙️ [Service worker](#service-worker) that caches pages so people can read your articles offline  
 🚀 An RSS feed for your posts  
 💌 A basic contact form, ready for [Netlify Forms](https://docs.netlify.com/forms/setup/#html-forms)
 
@@ -179,6 +179,57 @@ Grabs the property and value of one of the `$stalfos-config utilities` that the 
 #### `media-query($key)`
 
 Pass in the key of one of your breakpoints set in `$stalfos-config['breakpoints']` and this mixin will generate the `@media` query with your configured value.
+
+## Service worker
+
+Workbox-cli is used to provide an easy-to-manage service worker implementation. This is already configured with sensible defaults so that you benefit from the following with no additional fuss:
+
+- Pre-caching of core pages and assets (such as js and fonts)
+- Runtime caching of images and blog posts
+- An 'Offline' page (`/pages/offline.md`) which is displayed when a page cannot be served either from the cache or the network (e.g. while offline), including a 'Reload' button
+
+The service worker will be automatically generated for production builds (`npm run production`), but can also be generated separately for testing as follows.
+
+### Copy libraries
+
+Run this command to copy the required workbox-sw libraries to `/dist/js/workbox`:
+
+```bash
+npm run workbox:copy-libraries
+```
+
+### Generate service worker
+
+Run this command to generate the service worker:
+
+```bash
+npm run workbox:inject
+```
+
+The service worker is generated as follows:
+
+- Workbox-cli uses the configuration defined in `./workbox-config.js` to create a pre-cache list
+- The pre-cache list is 'injected' into the service worker template: `/src/_includes/partials/global/service-worker.js` *(the file on disk is not modified)*
+- The complete service worker is generated here: `/dist/service-worker.js`.
+
+### Updating the service worker
+
+You can make changes to the service worker configuration as follows:
+
+- To update the pre-cache config, edit `./workbox-config.js`
+- To update the service worker template (e.g. to modify runtime caching configuration), edit `/src/_includes/partials/global/service-worker.js`
+
+Once you've made your required changes, run the following command to re-generate the service worker:
+
+```bash
+npm run workbox:inject
+```
+
+If you haven't already, run the following command to copy the required workbox-sw libraries to `/dist/js/workbox`:
+
+```bash
+npm run workbox:copy-libraries
+```
 
 ## CMS
 

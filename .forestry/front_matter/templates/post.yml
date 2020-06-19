@@ -24,4 +24,3 @@ fields:
   description: Draft posts <strong>are still published</strong> but will not appear
     in post lists on your site.
   default: true
-pages:

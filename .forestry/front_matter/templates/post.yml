@@ -1,0 +1,27 @@
+---
+label: Post
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+  config:
+    required: true
+- type: datetime
+  name: date
+  label: date
+  default: now
+  config:
+    date_format: YYYY-MM-DD
+    export_format: YYYY-MM-DD
+    required: true
+- type: list
+  name: tags
+  label: tags
+- name: draft
+  type: boolean
+  label: draft
+  description: Draft posts <strong>are still published</strong> but will not appear
+    in post lists on your site.
+  default: true
+pages:

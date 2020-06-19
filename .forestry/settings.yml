@@ -1,0 +1,50 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: ''
+webhook_url: 
+sections:
+- type: heading
+  label: Content
+- type: document
+  path: src/index.md
+  label: Home
+- type: directory
+  path: src/pages
+  label: Pages
+  create: documents
+  match: "*.md"
+  templates:
+  - page
+- type: directory
+  path: src/posts
+  label: Posts
+  create: documents
+  match: "*.md"
+  templates:
+  - post
+- type: heading
+  label: Globals
+- type: document
+  path: src/_data/tokens.json
+  label: Theme settings
+- type: document
+  path: src/_data/site.json
+  label: Site settings
+- type: document
+  path: src/_data/navigation.json
+  label: Navigation
+upload_dir: src/images
+public_path: "/images"
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ":filename:"
+build:
+  preview_env:
+  - ELEVENTY_ENV=development
+  preview_output_directory: src/dist
+  install_dependencies_command: npm install
+  preview_docker_image: forestryio/node:12
+  mount_path: "/srv"
+  working_dir: "/srv"
+  instant_preview_command: npm start

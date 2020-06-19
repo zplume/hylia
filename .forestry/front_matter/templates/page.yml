@@ -1,0 +1,26 @@
+---
+label: Page
+hide_body: false
+display_field: title
+fields:
+- name: title
+  type: text
+  config:
+    required: true
+  label: title
+- name: permalink
+  type: text
+  config:
+    required: true
+  label: permalink
+  description: The URL of the page. e.g. /page-name/index.html
+- name: layout
+  type: text
+  config:
+    required: false
+  label: layout
+  hidden: false
+  default: layouts/page.njk
+pages:
+- src/pages/contact.md
+- src/pages/thank-you.md

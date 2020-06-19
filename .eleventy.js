@@ -35,6 +35,8 @@ module.exports = function(config) {
   config.addPassthroughCopy('src/admin/previews.js');
   config.addPassthroughCopy('node_modules/nunjucks/browser/nunjucks-slim.js');
   config.addPassthroughCopy('src/robots.txt');
+              
+  config.addWatchTarget("src/_includes/partials/global/service-worker.js");
 
   // trigger build when scss changes, don't use .gitignore
 	config.addWatchTarget("src/_includes/assets/css");

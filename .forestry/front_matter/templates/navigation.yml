@@ -1,0 +1,28 @@
+---
+label: Navigation
+hide_body: true
+fields:
+- type: field_group_list
+  name: items
+  label: items
+  fields:
+  - type: text
+    name: text
+    label: text
+    config:
+      required: true
+    default: ''
+  - type: text
+    name: url
+    label: url
+    config:
+      required: true
+    default: "/"
+  - type: boolean
+    name: external
+    label: external
+    default: false
+  config:
+    labelField: text
+pages:
+- src/_data/navigation.json

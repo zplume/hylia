@@ -24,3 +24,9 @@ fields:
   description: Draft posts <strong>are still published</strong> but will not appear
     in post lists on your site.
   default: true
+pages:
+- src/posts/a-post-with-code-samples.md
+- src/posts/a-post-with-figures-and-video.md
+- src/posts/a-scheduled-post.md
+- src/posts/a-simple-post.md
+- src/posts/a-simple-post.md

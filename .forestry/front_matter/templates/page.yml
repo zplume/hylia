@@ -23,4 +23,5 @@ fields:
   default: layouts/page.njk
 pages:
 - src/pages/contact.md
+- src/pages/offline.md
 - src/pages/thank-you.md

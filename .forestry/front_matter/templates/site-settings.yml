@@ -1,0 +1,43 @@
+---
+label: Site settings
+hide_body: true
+fields:
+- type: boolean
+  name: showThemeCredit
+  label: showThemeCredit
+  default: false
+- type: text
+  name: name
+  label: name
+  config:
+    required: true
+- type: text
+  name: shortDesc
+  label: shortDesc
+- type: text
+  name: url
+  label: url
+- type: text
+  name: authorEmail
+  label: authorEmail
+- type: text
+  name: authorHandle
+  label: authorHandle
+- type: text
+  name: authorName
+  label: authorName
+- type: boolean
+  name: enableThirdPartyComments
+  label: enableThirdPartyComments
+  default: false
+- type: number
+  name: maxPostsPerPage
+  label: maxPostsPerPage
+- type: text
+  name: paymentPointer
+  label: paymentPointer
+- type: file
+  name: faviconPath
+  label: faviconPath
+pages:
+- src/_data/site.json
